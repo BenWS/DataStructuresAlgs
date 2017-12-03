@@ -12,7 +12,7 @@ public class IntList {
     L = new IntList(10, L);
     L = new IntList(5, L);
 
-    IntList L_new = L.get(3);
+    IntList L_new = L.get(1);
     System.out.println(L_new.first);
   }
 
@@ -56,25 +56,11 @@ public class IntList {
       return size;
   }
 
-  public IntList get(int index) {
-    int current_index = this.size();
-    IntList rest = this.rest;
-    IntList new_rest = rest;
-    //index = 3
-    //current_index = 3
-
-    //current_index >= index ---> FALSE
-    //return current rest
-
-
-    while (new_rest != null) {
-      new_rest = new_rest.rest;
-      current_index = current_index - 1;
+  public int get(int index) {
+    if (index == 0) {
+      return first;
+    } else {
+      return rest.get(index - 1);
     }
-
-    return rest;
-    //return IntList object
   }
 }
-
-  //method for getting size of IntList
